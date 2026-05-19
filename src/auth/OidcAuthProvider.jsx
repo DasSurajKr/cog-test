@@ -18,6 +18,8 @@ export function OidcAuthProvider({ children }) {
     userStore: typeof window !== 'undefined' ? window.localStorage : undefined,
   };
 
+  console.log('OIDC settings:', settings); // Debug log to verify settings
+
   return <OidcProvider {...settings}>{children}</OidcProvider>;
 }
 

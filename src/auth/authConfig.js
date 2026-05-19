@@ -8,14 +8,15 @@ const getEnv = (key) => {
 
 export const AUTH_CONFIG = {
   authority:
-    getEnv('VITE_REACT_APP_COGNITO_AUTHORITY') || getEnv('REACT_APP_COGNITO_AUTHORITY') || '',
+    getEnv('VITE_REACT_APP_COGNITO_AUTHORITY') || getEnv('VITE_COGNITO_AUTHORITY') || getEnv('REACT_APP_COGNITO_AUTHORITY') || '',
   client_id:
-    getEnv('VITE_REACT_APP_CLIENT_ID') || getEnv('REACT_APP_CLIENT_ID') || '',
+    getEnv('VITE_REACT_APP_CLIENT_ID') || getEnv('VITE_CLIENT_ID') || getEnv('REACT_APP_CLIENT_ID') || '',
   redirect_uri:
-    getEnv('VITE_REACT_APP_REDIRECT_URI') || getEnv('REACT_APP_REDIRECT_URI') || window.location.origin,
+    getEnv('VITE_REACT_APP_REDIRECT_URI') || getEnv('VITE_REDIRECT_URI') || getEnv('REACT_APP_REDIRECT_URI') || window.location.origin,
   post_logout_redirect_uri:
-    getEnv('VITE_REACT_APP_LOGOUT_URI') || getEnv('REACT_APP_LOGOUT_URI') || window.location.origin,
-  scope: getEnv('VITE_REACT_APP_OAUTH_SCOPES') || getEnv('REACT_APP_OAUTH_SCOPES') || 'openid email phone',
+    getEnv('VITE_REACT_APP_LOGOUT_URI') || getEnv('VITE_LOGOUT_URI') || getEnv('REACT_APP_LOGOUT_URI') || window.location.origin,
+  scope:
+    getEnv('VITE_REACT_APP_OAUTH_SCOPES') || getEnv('VITE_OAUTH_SCOPES') || getEnv('REACT_APP_OAUTH_SCOPES') || 'openid email phone',
   response_type: 'code',
 };
 
