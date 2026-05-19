@@ -3,6 +3,7 @@ dist
 dist-ssr
 *.local
 .DS_Store
+cognito-react-app
 
 # Environment files (do not commit real secrets)
 .env

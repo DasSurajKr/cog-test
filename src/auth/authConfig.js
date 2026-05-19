@@ -7,6 +7,8 @@ const getEnv = (key) => {
 };
 
 export const AUTH_CONFIG = {
+  // authority must be your Cognito Hosted UI domain, e.g.
+  // https://<your-domain>.auth.us-east-1.amazoncognito.com
   authority:
     getEnv('VITE_REACT_APP_COGNITO_AUTHORITY') || getEnv('VITE_COGNITO_AUTHORITY') || getEnv('REACT_APP_COGNITO_AUTHORITY') || '',
   client_id:
