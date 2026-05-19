@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import AUTH_CONFIG from '../auth/authConfig';
 import { useToast } from '../context/ToastContext';
 import { validateLogin } from '../utils/validators';
 import { Loader } from '../components/ui/Loader';
@@ -102,6 +103,17 @@ export default function LoginPage() {
             </button>
           ))}
         </div>
+        {AUTH_CONFIG.client_id && (
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={() => login()}
+              className="w-full py-2.5 rounded-xl btn-outline flex items-center justify-center gap-2"
+            >
+              Sign in with Cognito
+            </button>
+          </div>
+        )}
       </div>
 
       <p className="text-center text-sm mt-6 text-slate-500">
