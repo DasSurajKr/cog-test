@@ -111,7 +111,17 @@ export default function LoginPage() {
           </>
         ) : (
           <div className="rounded-3xl border border-slate-200 p-6 text-center text-sm text-slate-600">
-            Cognito login is enabled. Use the button below to continue with the hosted login flow.
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                login();
+              }}
+              className="text-indigo-500 font-medium hover:underline"
+            >
+              Cognito login
+            </button>{' '}
+            is enabled. Use the button below to continue with the hosted login flow.
           </div>
         )}
       </form>
