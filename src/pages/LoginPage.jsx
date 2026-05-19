@@ -111,8 +111,8 @@ export default function LoginPage() {
           </>
         ) : (
           <div className="rounded-3xl border border-slate-200 p-6 text-center text-sm text-slate-600">
-            <button
-              type="button"
+            <Link
+              to={location.pathname}
               onClick={(e) => {
                 e.preventDefault();
                 login();
@@ -120,7 +120,7 @@ export default function LoginPage() {
               className="text-indigo-500 font-medium hover:underline"
             >
               Cognito login
-            </button>{' '}
+            </Link>{' '}
             is enabled. Use the button below to continue with the hosted login flow.
           </div>
         )}
@@ -137,13 +137,16 @@ export default function LoginPage() {
         </div>
         {AUTH_CONFIG.client_id && (
           <div className="mt-3">
-            <button
-              type="button"
-              onClick={() => login()}
-              className="py-2.5 rounded-xl glass text-sm font-medium hover:glow-hover"
+            <Link
+              to={location.pathname}
+              onClick={(e) => {
+                e.preventDefault();
+                login();
+              }}
+              className="block py-2.5 rounded-xl glass text-sm font-medium hover:glow-hover"
             >
               Sign in with Cognito
-            </button>
+            </Link>
           </div>
         )}
       </div>
