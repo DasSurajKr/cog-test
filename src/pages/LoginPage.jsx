@@ -130,7 +130,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => login()}
-              className="w-full py-2.5 rounded-xl btn-outline flex items-center justify-center gap-2"
+              className="py-2.5 rounded-xl glass text-sm font-medium hover:glow-hover"
             >
               Sign in with Cognito
             </button>
