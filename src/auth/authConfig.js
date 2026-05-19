@@ -6,6 +6,11 @@ const getEnv = (key) => {
   return undefined;
 };
 
+const normalizeScope = (value) => {
+  if (!value) return value;
+  return value.trim().replace(/^['"]|['"]$/g, '');
+};
+
 export const AUTH_CONFIG = {
   // authority must be your Cognito Hosted UI domain, e.g.
   // https://<your-domain>.auth.us-east-1.amazoncognito.com
@@ -18,7 +23,9 @@ export const AUTH_CONFIG = {
   post_logout_redirect_uri:
     getEnv('VITE_REACT_APP_LOGOUT_URI') || getEnv('VITE_LOGOUT_URI') || getEnv('REACT_APP_LOGOUT_URI') || window.location.origin,
   scope:
-    getEnv('VITE_REACT_APP_OAUTH_SCOPES') || getEnv('VITE_OAUTH_SCOPES') || getEnv('REACT_APP_OAUTH_SCOPES') || 'openid email phone',
+    normalizeScope(
+      getEnv('VITE_REACT_APP_OAUTH_SCOPES') || getEnv('VITE_OAUTH_SCOPES') || getEnv('REACT_APP_OAUTH_SCOPES')
+    ) || 'openid email phone',
   response_type: 'code',
 };
 
